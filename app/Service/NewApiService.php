@@ -6,7 +6,7 @@ namespace App\Service;
 
 use App\Model\PaymentLog;
 use GuzzleHttp\Client;
-use GuzzleHttp\ClientFactory;
+use Hyperf\Guzzle\ClientFactory;
 use Psr\Log\LoggerInterface;
 use function Hyperf\Support\env;
 
