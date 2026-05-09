@@ -26,7 +26,7 @@ services:
       DEFAULT_COIN: ${DEFAULT_COIN:-USDT}
       APP_URL: ${APP_URL}
     volumes:
-      - ./logs:/opt/www/logs
+      - ./:/opt/www
     networks:
       - new-api_new-api-network
 
