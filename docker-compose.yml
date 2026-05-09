@@ -28,8 +28,8 @@ services:
     volumes:
       - ./logs:/opt/www/logs
     networks:
-      - new-api-network
+      - new-api_new-api-network
 
 networks:
-  new-api-network:
+  new-api_new-api-network:
     external: true
