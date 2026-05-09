@@ -47,7 +47,7 @@ class PlisioService
         ];
 
         try {
-            $response = $this->client->get('/invoices/new', ['query' => $params]);
+            $response = $this->client->get('/api/v1/invoices/new', ['query' => $params]);
             $body = $response->getBody()->getContents();
             return json_decode($body, true) ?: ['status' => 'error', 'message' => 'Invalid response'];
         } catch (\Throwable $e) {
