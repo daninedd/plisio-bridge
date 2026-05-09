@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Service;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\ClientFactory;
+use Hyperf\Guzzle\ClientFactory;
 use Psr\Log\LoggerInterface;
 use function Hyperf\Support\env;
 
