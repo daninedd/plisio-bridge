@@ -1,0 +1,26 @@
+# 临时文件
+runtime/*
+logs/*
+.idea/
+.vscode/
+
+# 环境变量 (生产环境不提交)
+.env
+.env.production
+.env.local
+
+# SSL 证书
+docker/nginx/ssl/*.pem
+docker/nginx/ssl/*.key
+!docker/nginx/ssl/.gitkeep
+
+# 依赖
+vendor/
+
+# IDE
+.DS_Store
+*.swp
+*.swo
+
+# Composer
+composer.phar

@@ -1,0 +1,35 @@
+version: '3.4'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: plisio-bridge
+    restart: always
+    ports:
+      - "9501:9501"
+    environment:
+      APP_ENV: production
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_DATABASE: plisio_bridge
+      DB_USERNAME: root
+      DB_PASSWORD: Welcome1++
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_AUTH: Welcome1++
+      EPAY_PID: ${EPAY_PID}
+      EPAY_KEY: ${EPAY_KEY}
+      PLISIO_API_KEY: ${PLISIO_API_KEY}
+      PLISIO_API_URL: ${PLISIO_API_URL:-https://plisio.net/api/v1}
+      DEFAULT_COIN: ${DEFAULT_COIN:-USDT}
+      APP_URL: ${APP_URL}
+    volumes:
+      - ./logs:/opt/www/logs
+    networks:
+      - new-api-network
+
+networks:
+  new-api-network:
+    external: true
