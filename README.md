@@ -29,7 +29,7 @@ NewAPI (go-epay) ──GET /submit.php?pid=...&sign=...──→ Plisio Bridge
 
 ## 部署
 
-与 new-api 共用 MySQL/Redis，加入 `new-api-network`。
+与 new-api 共用 MySQL/Redis，加入 `new-api-network`。..
 
 ```bash
 # 1. 先确保 new-api 已启动
