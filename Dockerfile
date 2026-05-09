@@ -7,10 +7,12 @@ WORKDIR /opt/www
 
 RUN apk add --no-cache git curl zip unzip
 
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
-COPY docker-entrypoint.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+COPY . /opt/www
+
+RUN composer install --no-dev --optimize-autoloader \
+    && mkdir -p runtime logs \
+    && chmod -R 777 runtime logs
 
 EXPOSE 9501
 
-ENTRYPOINT ["docker-entrypoint.sh"]
+CMD ["php", "bin/hyperf.php", "start"]
