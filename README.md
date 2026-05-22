@@ -59,7 +59,11 @@ EPAY_PID=            # 商户ID (需与 NewAPI 后台一致)
 EPAY_KEY=            # 商户密钥 (需与 NewAPI 后台一致)
 PLISIO_API_KEY=      # Plisio API Key
 APP_URL=             # 本服务公网地址 (如 https://pay.example.com)
+DEFAULT_COIN=USDT_TRX
+ALLOWED_COINS=USDT,USDT_TRX,USDT_BSC,USDT_TON,USDT_SOL
 ```
+
+`DEFAULT_COIN` 是跳转到 Plisio 时默认打开的币种/网络；`ALLOWED_COINS` 是 Plisio 支付页允许用户切换的币种/网络列表。NewAPI 里可以只配置一个 USDT 支付方式，用户跳转到 Plisio 后再选择具体链。请确保这些币种已在 Plisio 后台启用。
 
 ```bash
 # 4. 构建并启动

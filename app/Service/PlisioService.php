@@ -36,6 +36,8 @@ class PlisioService
         string $coin = 'USDT',
         string $callbackUrl = '',
     ): array {
+        $allowedCoins = trim((string) env('ALLOWED_COINS', ''));
+
         $params = [
             'order_number'   => $orderNo,
             'order_name'     => $orderName,
@@ -45,6 +47,10 @@ class PlisioService
             'callback_url'   => $callbackUrl,
             'api_key'        => env('PLISIO_API_KEY', ''),
         ];
+
+        if ($allowedCoins !== '') {
+            $params['allowed_psys_cids'] = $allowedCoins;
+        }
 
         try {
             $response = $this->client->get('/api/v1/invoices/new', ['query' => $params]);

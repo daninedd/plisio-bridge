@@ -23,7 +23,8 @@ services:
       EPAY_KEY: ${EPAY_KEY}
       PLISIO_API_KEY: ${PLISIO_API_KEY}
       PLISIO_API_URL: ${PLISIO_API_URL:-https://plisio.net/api/v1}
-      DEFAULT_COIN: ${DEFAULT_COIN:-USDT}
+      DEFAULT_COIN: ${DEFAULT_COIN:-USDT_TRX}
+      ALLOWED_COINS: ${ALLOWED_COINS:-USDT,USDT_TRX,USDT_BSC,USDT_TON,USDT_SOL}
       APP_URL: ${APP_URL}
     volumes:
       - ./:/opt/www
