@@ -35,6 +35,7 @@ class PlisioService
         float  $amount,
         string $coin = 'USDT',
         string $callbackUrl = '',
+        string $successInvoiceUrl = '',
     ): array {
         $allowedCoins = trim((string) env('ALLOWED_COINS', ''));
 
@@ -47,6 +48,10 @@ class PlisioService
             'callback_url'   => $callbackUrl,
             'api_key'        => env('PLISIO_API_KEY', ''),
         ];
+
+        if ($successInvoiceUrl !== '') {
+            $params['success_invoice_url'] = $successInvoiceUrl;
+        }
 
         if ($allowedCoins !== '') {
             $params['allowed_psys_cids'] = $allowedCoins;

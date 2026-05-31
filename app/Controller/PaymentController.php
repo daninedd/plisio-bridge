@@ -54,9 +54,10 @@ class PaymentController extends AbstractController
         $coin      = env('DEFAULT_COIN', 'USDT');
         $orderName = $params['name'] ?? "Order {$orderNo}";
         $callbackUrl = env('APP_URL', '') . '/api/callback/plisio';
+        $returnUrl = $params['return_url'] ?? '';
 
         // 调用 Plisio 创建发票
-        $result = $this->plisio->createInvoice($orderNo, $orderName, $money, $coin, $callbackUrl);
+        $result = $this->plisio->createInvoice($orderNo, $orderName, $money, $coin, $callbackUrl, $returnUrl);
 
         // 记录 epay 请求参数 (回调时需要从中取 notify_url 等)
         EpayUtil::log(PaymentLog::DIRECTION_REQUEST, $orderNo, $params, $result);
